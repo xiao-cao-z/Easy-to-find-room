@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="less/text.css">
+    <link rel="stylesheet" href="less/register.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="iog1"><a href="#"><img src="image/index/logo.jpg" alt=""></a></div>
+            <div class="iog2"><a href="#"><img src="image/index/my.jpg" alt=""></a></div>
+            <div class="iog2"><a href="#"><img src="image/index/xiazai.jpg" alt=""></a></div>
+        </header>
+        <section>
+            <p>
+                <span>首页</span> >
+                <span>我的</span> >
+                <span>注册</span>
+            </p>
+            <ul>
+                <li><input type="text" placeholder="请输入手机号码"><button class="verify">获取验证码</button></li>
+                <li><input type="text" placeholder="请输入短信验证码"></li>
+                <li><input type="password" placeholder="请输入新密码"></li>
+                <li><button type="submit">提交</button></li>
+            </ul>
+        </section>
+    </div>
+
+
+    <script src="js/flexible.js"></script>
+    <script src="js/zepto.js"></script>
+    <script>
+        Zepto(function($){
+            
+            $(".verify").tap(function(){
+                var time = 60;
+                var strat=setInterval(function(){
+                    time--;
+                    $(".verify").html(time);
+                    if(time<=0){
+                        clearInterval(strat);
+                        $(".verify").html("再次验证");
+                    }
+                },1000)
+            })
+        })
+    </script>
+</body>
+</html>
